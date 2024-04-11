@@ -1,5 +1,9 @@
 FROM nextcloud/all-in-one:latest
 
+USER root
+RUN chmod g+r /var/run/docker.sock
+USER nextcloud
+
 # Mount the Docker socket into the container
 VOLUME /var/run/docker.sock
 
@@ -14,4 +18,5 @@ EXPOSE 8080
 VOLUME /mnt/docker-aio-config
 
 # Run additional setup commands (if needed)
+
 
